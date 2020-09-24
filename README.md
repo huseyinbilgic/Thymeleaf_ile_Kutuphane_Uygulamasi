@@ -1,1 +1,1 @@
-# Thymeleaf_ile_Kutuphane_Uygulamasi
+# Thymeleaf ile Kutuphane Uygulaması
