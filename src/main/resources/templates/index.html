@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Kitaplar</title>
+<link th:rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css} " />
+</head>
+<body>
+	<header class="container">
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<h1>
+				<a class="navbar-brand" href="/kitaplar">Kitaplar</a>
+			</h1>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarText" aria-controls="navbarText"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+
+				<span class="navbar-text ml-auto"> <a href="/kitapekle">Yeni
+						Kitap Ekle</a>
+				</span>
+			</div>
+		</nav>
+
+	</header>
+	<main>
+		<div class="container">
+
+
+			<div class=" row">
+				<div class="col-md-3">
+					<form th:action="@{/filtre}" th:object="${kitap}" method="post">
+						<label for="ara">Kitap Ara</label> <input id="ara" type="text"
+							th:field="*{ad}"></input>
+						<button class="btn btn-primary" type="submit">Ara</button>
+					</form>
+				</div>
+				<div class="col-md-9">
+					<table border="1">
+						<thead>
+							<tr>
+								<th>Kitap ID</th>
+								<th>Kitap Adı</th>
+								<th>Kitap Alt Adı</th>
+								<th>Kitap Seri Ad</th>
+								<th>Kitap Yazar Ad</th>
+								<th>Kitap Yayınevi Ad</th>
+								<th>Kitap ISBN Numarası</th>
+								<th>Kitap Açıklama</th>
+								<th>Düzenle / Sil</th>
+							</tr>
+						</thead>
+						<tbody th:each="map : ${mapsList}">
+							<tr th:each="mapEntry,iter : ${map}">
+								<td th:text="${mapEntry.key.id}"></td>
+								<td th:text="${mapEntry.key.ad}"></td>
+								<td th:text="${mapEntry.key.kitapaltad}"></td>
+								<td th:text="${mapEntry.key.seriad}"></td>
+								<td th:text="${mapEntry.value.ad}"></td>
+								<td th:text="${mapEntry.value.ad}"></td>
+								<td th:text="${mapEntry.key.isbnnumara}"></td>
+								<td th:text="${mapEntry.key.aciklama}"></td>
+								<td><a th:href="@{'/kitaplar/' + ${mapEntry.key.id}}">Düzenle</a>
+									<a th:href="@{'/sil/' + ${mapEntry.key.id}}">Sil</a></td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

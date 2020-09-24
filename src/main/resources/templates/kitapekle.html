@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Kitap Ekle</title>
+<link th:rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css} " />
+</head>
+<body>
+
+<header class="container">
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<h1>
+				<a class="navbar-brand" href="/kitaplar">Kitaplar</a>
+			</h1>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarText" aria-controls="navbarText"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+
+				<span class="navbar-text ml-auto"> <a href="/kitapekle">Yeni
+						Kitap Ekle</a>
+				</span>
+			</div>
+		</nav>
+
+	</header>
+	<main>
+	<div align="center">
+		<h1>Kitap Ekle</h1>
+		<form action="#" th:action="@{/kaydet}" th:object="${kitap}"
+			method="post">
+			<table>
+				
+				<tr>
+					<td><label for="kitap">Kitap Adı: </label></td>
+					<td><input id="kitap" type="text" th:field="*{ad}"></input></td>
+				</tr>
+				<tr>
+					<td><label for="kitapaltad">Kitap Alt Adı: </label></td>
+					<td>
+				<input id="kitapaltad" type="text" th:field="*{kitapaltad}"></input>
+					</td>
+					</tr>
+				<tr>
+					<td><label for="kitapseriad">Kitap Seri Ad:</label></td>
+					<td>
+				<input id="kitapseriad" type="text" th:field="*{seriad}"></input>
+					</td>
+					</tr>
+				<tr>
+					<td><label for="yazar">Kitap Yazar Ad:</label></td>
+					<td><select id="yazar" th:field="*{yazarid}">
+							<option th:each="yazar : ${yazarlar}" th:text="${yazar.ad}"
+								th:value="${yazar.id}">Yazar</option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td><label for="yayınevi">Kitap Yayınevi:</label></td>
+					<td><select id="yayınevi" th:field="*{yayineviid}">
+							<option th:each="yayinevi : ${yayinevleri}"
+								th:text="${yayinevi.ad}" th:value="${yayinevi.id}">Yayınevi</option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td><label for="isbnnumara">Kitap ISBN Numara:</label></td>
+					<td><input id="isbnnumara" type="text"
+						th:field="*{isbnnumara}"></input></td>
+				</tr>
+
+				<tr>
+					<td><label for="aciklama">Kitap Açıklama:</label></td>
+					<td><input id="aciklama" type="text" th:field="*{aciklama}"></input></td>
+				</tr>
+				<tr>
+					<td>
+						<button type="submit">Kaydet</button>
+					</td>
+				</tr>
+			</table>
+
+
+
+		</form>
+
+	</div>
+	</main>
+</body>
+</html>
