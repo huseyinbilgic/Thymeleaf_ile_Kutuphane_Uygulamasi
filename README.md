@@ -1,6 +1,6 @@
-# Thymeleaf ile Kutuphane Uygulaması
+# Thymeleaf ile Kütüphane Uygulaması
 
-Uygulamada kullanılan teknolojiler
+#### Uygulamada kullanılan teknolojiler
 - Spring Boot
 - Maven
 - Thymeleaf
