@@ -13,4 +13,5 @@
 - IDE olarak eclipse kullanılabilir. 
 - Çalıştırmak için Linux kullanıcıları proje dizininde  **./mvnw spring-boot:run** komutu kullanarak çalıştırabilir. Ya da eclipse uygulamasında projeyi import edip proje klasöründeki **src.main.java.com.huseyinbilgic.app.kutuphaneApp** paketine sağ tıklayıp *Run Ass* 'den  Java Application'ı seçerek çalıştırabilirler.
 - Uygulama çalıştırılmadan önce 8080 portunun çalışmadığından ve mysql'in çalıştığından emin olunuz.
+- Projeyi çalıştırdıktan sonra herhangi bir browserdan **localhost:8080**'e gidebilirler.
 
